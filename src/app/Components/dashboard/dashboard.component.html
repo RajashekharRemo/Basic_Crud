@@ -1,0 +1,118 @@
+<div class="px-5 bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Navbar</a>
+      </div>
+      <div >
+        <a class="text-primary" (click)="logout()">Logout</a>
+      </div>
+    </nav>
+</div>
+
+
+<div class="container mt-5" id="blur"> 
+    <div class="row">
+        <div class="card">
+            <!-- <div class="card-header">
+              Featured
+            </div> -->
+            <div class="card-body">
+
+              <div class=" px-3 mb-4" style="display: flex; justify-content: space-between;"><h4 class="card-title">Application Data </h4> 
+                <a class="btn btn-primary" (click)="addMemb()">Add Member</a></div>
+              <div class="card mb-3" *ngFor="let data of ApplicationData; index as i">
+                <div class="card-body">
+                  <div class="mb-3" style="display: flex;"><img src="{{data.profilepicture}}" height="40px" width="40px"><h5 class="mx-3 card-title">{{data.Name}}</h5></div>
+                  
+                  <div class="mb-3">
+                    <table class="w-100">
+                        <thead>
+                            <tr>
+                                <th>Email</th>
+                                <th>Phone Number</th>
+                                <th>Gender</th>
+                                <th>Application Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{data.Email}}</td>
+                                <td>{{data.Mobilenumber}}</td>
+                                <td>{{data.Gender}}</td>
+                                <td>{{data.ApplicationAmount}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                  </div>
+                  <a  class="btn btn-danger " style="margin-right: 10px;" (click)="deleteItem(i)">Delete</a><a class="btn btn-info">Edit</a>
+                </div>
+              </div>
+                
+            </div>
+            <!-- <div class="card-footer text-muted">
+              2 days ago
+            </div> -->
+          </div>
+    </div>
+</div>
+
+
+
+  
+
+  
+  <!-- Modal -->
+  <div  id="staticBackdrop" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Add Member</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="addMemb()"></button>
+        </div>
+        <div class="modal-body">
+            <form>
+                <!-- Name input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <label class="form-label" for="formExample1">Name</label>
+                  <input type="text" id="formExample1" name="Name" class="form-control" />
+                </div>
+                
+                <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <label class="form-label" for="formExample2">Email address</label>
+                    <input type="email" id="formExample2" name="Email" class="form-control" />
+                  </div>
+                <!-- Mobile input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <label class="form-label" for="formExample3">Mobile Number</label>
+                  <input type="text" id="formExample3" name="Mobilenumber" maxlength="10" class="form-control" />
+                </div>
+
+                
+                  <!-- Password input -->
+                  <div data-mdb-input-init class="form-outline mb-3">
+                      <label class="form-label" for="formExample4">Gender</label>
+                    <input type="text" id="formExample4" name="Gender" class="form-control" />
+                  </div>
+
+                  <!-- Email input -->
+                <div data-mdb-input-init class="form-outline mb-3">
+                    <label class="form-label" for="formExample5">Application Amount</label>
+                    <input type="text" id="formExample5" name="ApplicationAmount" class="form-control" />
+                  </div>
+                
+                  <!-- Password input -->
+                  <div data-mdb-input-init class="form-outline mb-3">
+                      <label class="form-label" for="formExample6">Profile Picture</label>
+                    <input type="file" id="formExample6" name="profilepicture" class="form-control" accept="image/jpeg, image/png"/>
+                  </div>
+
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="newlyAddMemb()">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>

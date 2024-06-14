@@ -1,0 +1,14 @@
+.getFormToMiddle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+.getFormToMiddle form{
+    width: 500px;
+    border: 1px solid rgb(114, 111, 111);
+    padding: 20px;
+}

@@ -1,0 +1,39 @@
+<div class="getFormToMiddle">
+    <form>
+        <!-- Email input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example1">Email address</label>    
+            <input type="text" class="form-control" name="email" [(ngModel)]="loginObj.email" #email="ngModel" minlength="8" required
+            pattern="[A-Za-z0-9!#$%&*'_\-]+@[A-Za-z0-9_]+\.[a-z]{2,3}$"/>
+            <span *ngIf="email.invalid && (email.touched || email.dirty)">
+                <label *ngIf="email.errors?.['required']">This is
+                Required</label><!--[class]="!email.touched?'email-m1':'email-m2'"-->
+                <label *ngIf="email.errors?.['minlength']">Min 8 characters needed</label>
+                <label *ngIf="email.errors?.['pattern']">Pattern unmatched</label>
+            </span>
+        </div>
+      
+        <!-- Password input -->
+        <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="form2Example2">Password</label>
+            <input type="text" class="form-control" name="password" [(ngModel)]="loginObj.password"
+            #password="ngModel" minlength="8" required
+            pattern="^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*_{\-}+'>?`])[A-Za-z0-9!@#$%^&*_{\-}+'>?`]{8,16}$"/>
+            <span *ngIf="password.invalid && (password.touched || password.dirty)">
+                <label id="errormessage" *ngIf="password.errors?.['required']">this is required</label>
+                <label id="errormessage" *ngIf="password.errors?.['minlength']">Min 8 characters needed</label>
+                <label id="errormessage" *ngIf="password.errors?.['pattern']">Pattern unmatched</label>
+            </span>
+        </div>
+      
+      
+        <!-- Submit button -->
+        <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4" (click)="loginProcess()">Sign in</button>
+      
+        <!-- Register buttons -->
+        <div class="text-center">
+          <p>Not a member? <a class="text-primary" routerLink="/create-account">Register</a></p>
+        </div>
+      </form>
+</div>
+
